@@ -19,28 +19,28 @@ Rest API for PGW payment purpose - LATEST
 - [Async](#async)
 - [Raw HTTP Response](#raw-http-response)
 - [Reference](#reference)
-  * [`2c2p.apple_pay.validate_merchant`](#2c2papple_payvalidate_merchant)
-  * [`2c2p.cache.clean_cache`](#2c2pcacheclean_cache)
-  * [`2c2p.cancel_transaction.post`](#2c2pcancel_transactionpost)
-  * [`2c2p.card_installment_plan_info.create`](#2c2pcard_installment_plan_infocreate)
-  * [`2c2p.card_token_info.get_card_token_info`](#2c2pcard_token_infoget_card_token_info)
-  * [`2c2p.exchange_rate.apm_mcc`](#2c2pexchange_rateapm_mcc)
-  * [`2c2p.exchange_rate.get_rate`](#2c2pexchange_rateget_rate)
-  * [`2c2p.exchange_rate.request_endpoint`](#2c2pexchange_raterequest_endpoint)
-  * [`2c2p.initialization.request_creation`](#2c2pinitializationrequest_creation)
-  * [`2c2p.loyalty_point_info.post_loyalty_point_info`](#2c2ployalty_point_infopost_loyalty_point_info)
-  * [`2c2p.payment.create_payment`](#2c2ppaymentcreate_payment)
-  * [`2c2p.payment_inquiry.post_payment_details`](#2c2ppayment_inquirypost_payment_details)
-  * [`2c2p.payment_instruction.submit_instruction`](#2c2ppayment_instructionsubmit_instruction)
-  * [`2c2p.payment_notification.process_notification`](#2c2ppayment_notificationprocess_notification)
-  * [`2c2p.payment_option.create_payment_option`](#2c2ppayment_optioncreate_payment_option)
-  * [`2c2p.payment_option_details.post_option_details`](#2c2ppayment_option_detailspost_option_details)
-  * [`2c2p.payment_simulate.execute_payment_simulation`](#2c2ppayment_simulateexecute_payment_simulation)
-  * [`2c2p.payment_token.generate_token`](#2c2ppayment_tokengenerate_token)
-  * [`2c2p.redirect_back_end.post_payment_redirect`](#2c2predirect_back_endpost_payment_redirect)
-  * [`2c2p.redirect_front_end.post_payment_redirect`](#2c2predirect_front_endpost_payment_redirect)
-  * [`2c2p.transaction_status.update_transaction_status`](#2c2ptransaction_statusupdate_transaction_status)
-  * [`2c2p.user_preference.save_user_preference`](#2c2puser_preferencesave_user_preference)
+  * [`twoctwop.apple_pay.validate_merchant`](#twoctwopapple_payvalidate_merchant)
+  * [`twoctwop.cache.clean_cache`](#twoctwopcacheclean_cache)
+  * [`twoctwop.cancel_transaction.post`](#twoctwopcancel_transactionpost)
+  * [`twoctwop.card_installment_plan_info.create`](#twoctwopcard_installment_plan_infocreate)
+  * [`twoctwop.card_token_info.get_card_token_info`](#twoctwopcard_token_infoget_card_token_info)
+  * [`twoctwop.exchange_rate.apm_mcc`](#twoctwopexchange_rateapm_mcc)
+  * [`twoctwop.exchange_rate.get_rate`](#twoctwopexchange_rateget_rate)
+  * [`twoctwop.exchange_rate.request_endpoint`](#twoctwopexchange_raterequest_endpoint)
+  * [`twoctwop.initialization.request_creation`](#twoctwopinitializationrequest_creation)
+  * [`twoctwop.loyalty_point_info.post_loyalty_point_info`](#twoctwoployalty_point_infopost_loyalty_point_info)
+  * [`twoctwop.payment.create_payment`](#twoctwoppaymentcreate_payment)
+  * [`twoctwop.payment_inquiry.post_payment_details`](#twoctwoppayment_inquirypost_payment_details)
+  * [`twoctwop.payment_instruction.submit_instruction`](#twoctwoppayment_instructionsubmit_instruction)
+  * [`twoctwop.payment_notification.process_notification`](#twoctwoppayment_notificationprocess_notification)
+  * [`twoctwop.payment_option.create_payment_option`](#twoctwoppayment_optioncreate_payment_option)
+  * [`twoctwop.payment_option_details.post_option_details`](#twoctwoppayment_option_detailspost_option_details)
+  * [`twoctwop.payment_simulate.execute_payment_simulation`](#twoctwoppayment_simulateexecute_payment_simulation)
+  * [`twoctwop.payment_token.generate_token`](#twoctwoppayment_tokengenerate_token)
+  * [`twoctwop.redirect_back_end.post_payment_redirect`](#twoctwopredirect_back_endpost_payment_redirect)
+  * [`twoctwop.redirect_front_end.post_payment_redirect`](#twoctwopredirect_front_endpost_payment_redirect)
+  * [`twoctwop.transaction_status.update_transaction_status`](#twoctwoptransaction_statusupdate_transaction_status)
+  * [`twoctwop.user_preference.save_user_preference`](#twoctwopuser_preferencesave_user_preference)
 
 <!-- tocstop -->
 
@@ -59,13 +59,13 @@ Python >=3.7
 
 ```python
 from pprint import pprint
-from 2c2p_python_sdk import 2C2P, ApiException
+from 2c2p_python_sdk import TwoCTwoP, ApiException
 
-2c2p = 2C2P(
+twoctwop = TwoCTwoP(
 )
 
 try:
-    validate_merchant_response = 2c2p.apple_pay.validate_merchant(
+    validate_merchant_response = twoctwop.apple_pay.validate_merchant(
         payment_token="string_example",
         validation_url="string_example",
         locale="string_example",
@@ -91,14 +91,14 @@ except ApiException as e:
 
 import asyncio
 from pprint import pprint
-from 2c2p_python_sdk import 2C2P, ApiException
+from 2c2p_python_sdk import TwoCTwoP, ApiException
 
-2c2p = 2C2P(
+twoctwop = TwoCTwoP(
 )
 
 async def main():
     try:
-        validate_merchant_response = await 2c2p.apple_pay.avalidate_merchant(
+        validate_merchant_response = await twoctwop.apple_pay.avalidate_merchant(
             payment_token="string_example",
             validation_url="string_example",
             locale="string_example",
@@ -124,13 +124,13 @@ To access raw HTTP response values, use the `.raw` namespace.
 
 ```python
 from pprint import pprint
-from 2c2p_python_sdk import 2C2P, ApiException
+from 2c2p_python_sdk import TwoCTwoP, ApiException
 
-2c2p = 2C2P(
+twoctwop = TwoCTwoP(
 )
 
 try:
-    validate_merchant_response = 2c2p.apple_pay.raw.validate_merchant(
+    validate_merchant_response = twoctwop.apple_pay.raw.validate_merchant(
         payment_token="string_example",
         validation_url="string_example",
         locale="string_example",
@@ -166,14 +166,14 @@ except ApiException as e:
 
 
 ## Reference<a id="reference"></a>
-### `2c2p.apple_pay.validate_merchant`<a id="2c2papple_payvalidate_merchant"></a>
+### `twoctwop.apple_pay.validate_merchant`<a id="twoctwopapple_payvalidate_merchant"></a>
 
 
 
 #### 🛠️ Usage<a id="🛠️-usage"></a>
 
 ```python
-validate_merchant_response = 2c2p.apple_pay.validate_merchant(
+validate_merchant_response = twoctwop.apple_pay.validate_merchant(
     payment_token="string_example",
     validation_url="string_example",
     locale="string_example",
@@ -211,14 +211,14 @@ validate_merchant_response = 2c2p.apple_pay.validate_merchant(
 
 ---
 
-### `2c2p.cache.clean_cache`<a id="2c2pcacheclean_cache"></a>
+### `twoctwop.cache.clean_cache`<a id="twoctwopcacheclean_cache"></a>
 
 
 
 #### 🛠️ Usage<a id="🛠️-usage"></a>
 
 ```python
-2c2p.cache.clean_cache()
+twoctwop.cache.clean_cache()
 ```
 
 #### 🌐 Endpoint<a id="🌐-endpoint"></a>
@@ -229,14 +229,14 @@ validate_merchant_response = 2c2p.apple_pay.validate_merchant(
 
 ---
 
-### `2c2p.cancel_transaction.post`<a id="2c2pcancel_transactionpost"></a>
+### `twoctwop.cancel_transaction.post`<a id="twoctwopcancel_transactionpost"></a>
 
 
 
 #### 🛠️ Usage<a id="🛠️-usage"></a>
 
 ```python
-post_response = 2c2p.cancel_transaction.post(
+post_response = twoctwop.cancel_transaction.post(
     payment_token="string_example",
     locale="string_example",
     client_id="046b6c7f-0b8a-43b9-b35d-6489e6daee91",
@@ -271,14 +271,14 @@ post_response = 2c2p.cancel_transaction.post(
 
 ---
 
-### `2c2p.card_installment_plan_info.create`<a id="2c2pcard_installment_plan_infocreate"></a>
+### `twoctwop.card_installment_plan_info.create`<a id="twoctwopcard_installment_plan_infocreate"></a>
 
 
 
 #### 🛠️ Usage<a id="🛠️-usage"></a>
 
 ```python
-create_response = 2c2p.card_installment_plan_info.create(
+create_response = twoctwop.card_installment_plan_info.create(
     payment_token="string_example",
     card_no="string_example",
     bank_code="string_example",
@@ -319,14 +319,14 @@ create_response = 2c2p.card_installment_plan_info.create(
 
 ---
 
-### `2c2p.card_token_info.get_card_token_info`<a id="2c2pcard_token_infoget_card_token_info"></a>
+### `twoctwop.card_token_info.get_card_token_info`<a id="twoctwopcard_token_infoget_card_token_info"></a>
 
 
 
 #### 🛠️ Usage<a id="🛠️-usage"></a>
 
 ```python
-get_card_token_info_response = 2c2p.card_token_info.get_card_token_info(
+get_card_token_info_response = twoctwop.card_token_info.get_card_token_info(
     payment_token="string_example",
     locale="string_example",
     client_id="046b6c7f-0b8a-43b9-b35d-6489e6daee91",
@@ -361,14 +361,14 @@ get_card_token_info_response = 2c2p.card_token_info.get_card_token_info(
 
 ---
 
-### `2c2p.exchange_rate.apm_mcc`<a id="2c2pexchange_rateapm_mcc"></a>
+### `twoctwop.exchange_rate.apm_mcc`<a id="twoctwopexchange_rateapm_mcc"></a>
 
 APM MCC Exchange Rate
 
 #### 🛠️ Usage<a id="🛠️-usage"></a>
 
 ```python
-apm_mcc_response = 2c2p.exchange_rate.apm_mcc(
+apm_mcc_response = twoctwop.exchange_rate.apm_mcc(
     payment_token="string_example",
     locale="string_example",
     client_id="046b6c7f-0b8a-43b9-b35d-6489e6daee91",
@@ -403,14 +403,14 @@ apm_mcc_response = 2c2p.exchange_rate.apm_mcc(
 
 ---
 
-### `2c2p.exchange_rate.get_rate`<a id="2c2pexchange_rateget_rate"></a>
+### `twoctwop.exchange_rate.get_rate`<a id="twoctwopexchange_rateget_rate"></a>
 
 
 
 #### 🛠️ Usage<a id="🛠️-usage"></a>
 
 ```python
-get_rate_response = 2c2p.exchange_rate.get_rate(
+get_rate_response = twoctwop.exchange_rate.get_rate(
     payment_token="string_example",
     bin="string_example",
     locale="string_example",
@@ -448,14 +448,14 @@ get_rate_response = 2c2p.exchange_rate.get_rate(
 
 ---
 
-### `2c2p.exchange_rate.request_endpoint`<a id="2c2pexchange_raterequest_endpoint"></a>
+### `twoctwop.exchange_rate.request_endpoint`<a id="twoctwopexchange_raterequest_endpoint"></a>
 
 JWT Request Endpoint
 
 #### 🛠️ Usage<a id="🛠️-usage"></a>
 
 ```python
-request_endpoint_response = 2c2p.exchange_rate.request_endpoint(
+request_endpoint_response = twoctwop.exchange_rate.request_endpoint(
     payload="string_example",
 )
 ```
@@ -479,14 +479,14 @@ request_endpoint_response = 2c2p.exchange_rate.request_endpoint(
 
 ---
 
-### `2c2p.initialization.request_creation`<a id="2c2pinitializationrequest_creation"></a>
+### `twoctwop.initialization.request_creation`<a id="twoctwopinitializationrequest_creation"></a>
 
 
 
 #### 🛠️ Usage<a id="🛠️-usage"></a>
 
 ```python
-request_creation_response = 2c2p.initialization.request_creation()
+request_creation_response = twoctwop.initialization.request_creation()
 ```
 
 #### 🔄 Return<a id="🔄-return"></a>
@@ -501,14 +501,14 @@ request_creation_response = 2c2p.initialization.request_creation()
 
 ---
 
-### `2c2p.loyalty_point_info.post_loyalty_point_info`<a id="2c2ployalty_point_infopost_loyalty_point_info"></a>
+### `twoctwop.loyalty_point_info.post_loyalty_point_info`<a id="twoctwoployalty_point_infopost_loyalty_point_info"></a>
 
 
 
 #### 🛠️ Usage<a id="🛠️-usage"></a>
 
 ```python
-post_loyalty_point_info_response = 2c2p.loyalty_point_info.post_loyalty_point_info(
+post_loyalty_point_info_response = twoctwop.loyalty_point_info.post_loyalty_point_info(
     payment_token="string_example",
     provider_id="string_example",
     profile_id="string_example",
@@ -561,14 +561,14 @@ post_loyalty_point_info_response = 2c2p.loyalty_point_info.post_loyalty_point_in
 
 ---
 
-### `2c2p.payment.create_payment`<a id="2c2ppaymentcreate_payment"></a>
+### `twoctwop.payment.create_payment`<a id="twoctwoppaymentcreate_payment"></a>
 
 
 
 #### 🛠️ Usage<a id="🛠️-usage"></a>
 
 ```python
-create_payment_response = 2c2p.payment.create_payment(
+create_payment_response = twoctwop.payment.create_payment(
     payment_token="string_example",
     payment={
     },
@@ -614,14 +614,14 @@ create_payment_response = 2c2p.payment.create_payment(
 
 ---
 
-### `2c2p.payment_inquiry.post_payment_details`<a id="2c2ppayment_inquirypost_payment_details"></a>
+### `twoctwop.payment_inquiry.post_payment_details`<a id="twoctwoppayment_inquirypost_payment_details"></a>
 
 
 
 #### 🛠️ Usage<a id="🛠️-usage"></a>
 
 ```python
-post_payment_details_response = 2c2p.payment_inquiry.post_payment_details(
+post_payment_details_response = twoctwop.payment_inquiry.post_payment_details(
     payload="string_example",
 )
 ```
@@ -645,14 +645,14 @@ post_payment_details_response = 2c2p.payment_inquiry.post_payment_details(
 
 ---
 
-### `2c2p.payment_instruction.submit_instruction`<a id="2c2ppayment_instructionsubmit_instruction"></a>
+### `twoctwop.payment_instruction.submit_instruction`<a id="twoctwoppayment_instructionsubmit_instruction"></a>
 
 
 
 #### 🛠️ Usage<a id="🛠️-usage"></a>
 
 ```python
-submit_instruction_response = 2c2p.payment_instruction.submit_instruction(
+submit_instruction_response = twoctwop.payment_instruction.submit_instruction(
     payload="string_example",
 )
 ```
@@ -676,14 +676,14 @@ submit_instruction_response = 2c2p.payment_instruction.submit_instruction(
 
 ---
 
-### `2c2p.payment_notification.process_notification`<a id="2c2ppayment_notificationprocess_notification"></a>
+### `twoctwop.payment_notification.process_notification`<a id="twoctwoppayment_notificationprocess_notification"></a>
 
 
 
 #### 🛠️ Usage<a id="🛠️-usage"></a>
 
 ```python
-process_notification_response = 2c2p.payment_notification.process_notification(
+process_notification_response = twoctwop.payment_notification.process_notification(
     payment_token="string_example",
     plateform="string_example",
     recipient_id="string_example",
@@ -727,14 +727,14 @@ process_notification_response = 2c2p.payment_notification.process_notification(
 
 ---
 
-### `2c2p.payment_option.create_payment_option`<a id="2c2ppayment_optioncreate_payment_option"></a>
+### `twoctwop.payment_option.create_payment_option`<a id="twoctwoppayment_optioncreate_payment_option"></a>
 
 
 
 #### 🛠️ Usage<a id="🛠️-usage"></a>
 
 ```python
-create_payment_option_response = 2c2p.payment_option.create_payment_option(
+create_payment_option_response = twoctwop.payment_option.create_payment_option(
     payment_token="string_example",
     locale="string_example",
     client_id="046b6c7f-0b8a-43b9-b35d-6489e6daee91",
@@ -769,14 +769,14 @@ create_payment_option_response = 2c2p.payment_option.create_payment_option(
 
 ---
 
-### `2c2p.payment_option_details.post_option_details`<a id="2c2ppayment_option_detailspost_option_details"></a>
+### `twoctwop.payment_option_details.post_option_details`<a id="twoctwoppayment_option_detailspost_option_details"></a>
 
 
 
 #### 🛠️ Usage<a id="🛠️-usage"></a>
 
 ```python
-post_option_details_response = 2c2p.payment_option_details.post_option_details(
+post_option_details_response = twoctwop.payment_option_details.post_option_details(
     category_code="string_example",
     group_code="string_example",
     payment_token="string_example",
@@ -817,14 +817,14 @@ post_option_details_response = 2c2p.payment_option_details.post_option_details(
 
 ---
 
-### `2c2p.payment_simulate.execute_payment_simulation`<a id="2c2ppayment_simulateexecute_payment_simulation"></a>
+### `twoctwop.payment_simulate.execute_payment_simulation`<a id="twoctwoppayment_simulateexecute_payment_simulation"></a>
 
 
 
 #### 🛠️ Usage<a id="🛠️-usage"></a>
 
 ```python
-execute_payment_simulation_response = 2c2p.payment_simulate.execute_payment_simulation(
+execute_payment_simulation_response = twoctwop.payment_simulate.execute_payment_simulation(
     payload="string_example",
 )
 ```
@@ -848,14 +848,14 @@ execute_payment_simulation_response = 2c2p.payment_simulate.execute_payment_simu
 
 ---
 
-### `2c2p.payment_token.generate_token`<a id="2c2ppayment_tokengenerate_token"></a>
+### `twoctwop.payment_token.generate_token`<a id="twoctwoppayment_tokengenerate_token"></a>
 
 
 
 #### 🛠️ Usage<a id="🛠️-usage"></a>
 
 ```python
-generate_token_response = 2c2p.payment_token.generate_token(
+generate_token_response = twoctwop.payment_token.generate_token(
     payload="string_example",
 )
 ```
@@ -879,14 +879,14 @@ generate_token_response = 2c2p.payment_token.generate_token(
 
 ---
 
-### `2c2p.redirect_back_end.post_payment_redirect`<a id="2c2predirect_back_endpost_payment_redirect"></a>
+### `twoctwop.redirect_back_end.post_payment_redirect`<a id="twoctwopredirect_back_endpost_payment_redirect"></a>
 
 
 
 #### 🛠️ Usage<a id="🛠️-usage"></a>
 
 ```python
-2c2p.redirect_back_end.post_payment_redirect(
+twoctwop.redirect_back_end.post_payment_redirect(
     payment_response="string_example",
     is_leave_app="string_example",
 )
@@ -909,14 +909,14 @@ generate_token_response = 2c2p.payment_token.generate_token(
 
 ---
 
-### `2c2p.redirect_front_end.post_payment_redirect`<a id="2c2predirect_front_endpost_payment_redirect"></a>
+### `twoctwop.redirect_front_end.post_payment_redirect`<a id="twoctwopredirect_front_endpost_payment_redirect"></a>
 
 
 
 #### 🛠️ Usage<a id="🛠️-usage"></a>
 
 ```python
-2c2p.redirect_front_end.post_payment_redirect(
+twoctwop.redirect_front_end.post_payment_redirect(
     pay_response="string_example",
     is_leave_app="string_example",
 )
@@ -939,14 +939,14 @@ generate_token_response = 2c2p.payment_token.generate_token(
 
 ---
 
-### `2c2p.transaction_status.update_transaction_status`<a id="2c2ptransaction_statusupdate_transaction_status"></a>
+### `twoctwop.transaction_status.update_transaction_status`<a id="twoctwoptransaction_statusupdate_transaction_status"></a>
 
 
 
 #### 🛠️ Usage<a id="🛠️-usage"></a>
 
 ```python
-update_transaction_status_response = 2c2p.transaction_status.update_transaction_status(
+update_transaction_status_response = twoctwop.transaction_status.update_transaction_status(
     payment_token="string_example",
     additional_info=True,
     locale="string_example",
@@ -984,14 +984,14 @@ update_transaction_status_response = 2c2p.transaction_status.update_transaction_
 
 ---
 
-### `2c2p.user_preference.save_user_preference`<a id="2c2puser_preferencesave_user_preference"></a>
+### `twoctwop.user_preference.save_user_preference`<a id="twoctwopuser_preferencesave_user_preference"></a>
 
 
 
 #### 🛠️ Usage<a id="🛠️-usage"></a>
 
 ```python
-save_user_preference_response = 2c2p.user_preference.save_user_preference(
+save_user_preference_response = twoctwop.user_preference.save_user_preference(
     payment_token="string_example",
     locale="string_example",
     client_id="046b6c7f-0b8a-43b9-b35d-6489e6daee91",

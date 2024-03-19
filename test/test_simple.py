@@ -13,16 +13,16 @@ import unittest
 
 import os
 from pprint import pprint
-from 2c2p_python_sdk import 2C2P
+from 2c2p_python_sdk import TwoCTwoP
 
 class TestSimple(unittest.TestCase):
     def setUp(self):
         pass
 
     def test_client(self):
-        2c2p = 2C2P(
+        twoctwop = TwoCTwoP(
         )
-        self.assertIsNotNone(2c2p)
+        self.assertIsNotNone(twoctwop)
 
     def tearDown(self):
         pass

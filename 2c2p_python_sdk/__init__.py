@@ -27,4 +27,4 @@ from 2c2p_python_sdk.exceptions import ApiValueError
 from 2c2p_python_sdk.exceptions import ApiKeyError
 from 2c2p_python_sdk.exceptions import ApiException
 
-from 2c2p_python_sdk.client import 2C2P
+from 2c2p_python_sdk.client import TwoCTwoP

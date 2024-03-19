@@ -38,7 +38,7 @@ from 2c2p_python_sdk.apis.tags.user_preference_api import UserPreferenceApi
 
 
 
-class 2C2P(ClientCustom):
+class TwoCTwoP(ClientCustom):
 
     def __init__(self, configuration: typing.Union[Configuration, None] = None, **kwargs):
         super().__init__(configuration, **kwargs)
